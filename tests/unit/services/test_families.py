@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from ....services import families
+from api.services import families
 
 
 def test_get_all():
