@@ -1,3 +1,5 @@
+.PHONY: init test pep8 lint ci run_dev run
+
 init:
 	pip install -r requirements.txt
 

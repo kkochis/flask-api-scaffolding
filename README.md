@@ -1,28 +1,44 @@
 # flask-api-scaffolding
-API Scaffolding for Flask with linting, tests, and json-api responses
+API scaffolding project for Flask to use as a starting point to build your next
+application.
 
-The project aims to be simple scaffolding setup for APIs built with flask.
+The goal is to have a good starting point for building APIs/microservices and
+avoid getting bogged down by boilerplate when beginning a project. The scaffold
+is meant to have good defaults that are easy to change to suit different needs
+rather than have every feature under the sun that will bloat your API and slow
+down performance.
+
+## Features
+* PEP8 style checker (flake8)
+* Linting/code quality checking (with PyLint)
+* Unit and Integration testing (with pytest and built-in flask goodness)
+    * Test coverage reporting (coverage)
+* Gunicorn ready (or easily use a different app server)
+* JSON API compliant responses (TODO)
 
 ## Running Linting and Tests
-### PEP8
-```flake8 --count --statistics```
+PEP8 checking:
+```make pep8```
 
-### PyLint
-```PYTHONPATH=$PWD pylint $PWD```
+Linting and code quality check:
+```make lint```
 
-### Tests and Coverage Reports
-```coverage run -m py.test tests/ && coverage report```
+Tests and coverage reports :
+```make test```
+
+Do all of the above:
+```make ci```
 
 ## Running the Application
-### Development
-```python runserver.py --env development```
+Development:
+```make run_dev```
 
-### Production with Gunicorn
-```gunicorn runserver:app -b 0.0.0.0:5000```
+Production with Gunicorn:
+```make run```
 
 ## Todo
-* flesh out scaffolding
-  * data-access layer
+* swagger docs and validation
+*  flesh out example for controller, service and data-access layer
 * Extend Flask Response class to accept dictionaries from routes/controllers
   * Make response class return with `Content-Type: application/vnd.api+json`
   * Inteligent defaults for json-api compatibility (prefilled links.self)
